@@ -1,0 +1,249 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="tableApp">
+  <head>
+    <base href="/supplier/" />
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>供应商主页：产品</title>
+
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <style type="text/css">
+      .solid-height {
+        height:350px;
+      }
+      .a-span {
+        color: #333333;
+      }
+      .table-border-style {
+        border-collapse: separate;
+        border-radius: 4px
+      }
+    </style>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body ng-controller="tableController">
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- 移动端适配 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">折叠按钮</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">积木</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../material/material.html">材料浏览</a></li>
+            <li class="active"><a href="supplier.html" target="_self">供应商主页</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../member/register.html">注册</a></li>
+            <li><a href="../member/login.html">登录</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid solid-height">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="view-10">
+          <h3>示例供应商，欢迎您！</h3>
+        </div>
+        <div class="view-5">
+          <div class="container-fluid" ng-controller="idConroller">
+            <!-- 这里之后需要显示品牌名称而不是id -->
+            <label>品牌</label><label ng-bind="$location.search().id"></label><label>的产品：</label>
+            <label class="pull-right">
+              <a href="addproduct.html" target="_self"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              添加产品</a>
+            </label>
+          </div>
+        </div>
+        <!-- 供应商代理品牌列表 -->
+        <table class="table table-hover table-responsive table-border-style">
+          <thead>
+            <tr class="active">
+              <th>
+                序号
+              </th>
+              <th>
+                产品
+              </th>
+              <th>
+                创建时间
+              </th>
+              <th>
+                操作
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in items">
+              <td ng-bind="$index + 1"></td>
+              <td ng-bind="x.pname"></a></td>
+              <td ng-bind="x.adddate"></td>
+              <td>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>　
+                <a class="a-span" data-toggle="modal" data-target="#myModal" ng-click=deletePro(x.pname)><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- 模态框 -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">确认</h4>
+              </div>
+              <div class="modal-body">
+                确定要删除{{curname}}吗？
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="col-md-8 col-md-offset-2">
+          <!-- 分页 -->
+          <nav>
+          <ul class="pagination pull-right">
+            <li>
+              <a ng-click="previous()" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}"><a ng-click="selectPage(page)" ng-bind="page"></a></li>
+            <li>
+              <a ng-click="next()" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script> -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="../scripts/main.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript">
+      var app = angular.module("tableApp", []);
+      app.config(['$locationProvider', function($locationProvider) {  
+        $locationProvider.html5Mode(true);  
+      }]); 
+      app.controller('idConroller', ['$scope', '$location', function($scope, $location) {  
+        if ($location.search().id) {  
+          $scope.$location = $location; 
+          //console.log($location.search().id); 
+        }  
+      }]);
+
+      app.controller("tableController", function ($scope, $http) {
+        $http.get("test.js").then(function (response) {            //数据源
+            $scope.data = response.data.products;            //分页总数
+            //console.log($scope.data);
+            $scope.pageSize = 5;
+            $scope.pages = Math.ceil($scope.data.length / $scope.pageSize); //分页数
+            $scope.newPages = $scope.pages > 5 ? 5 : $scope.pages;
+            $scope.pageList = [];
+            $scope.selPage = 1;            //设置表格数据源(分页)
+            $scope.setData = function () {
+                $scope.items = $scope.data.slice(($scope.pageSize * ($scope.selPage - 1)), ($scope.selPage * $scope.pageSize));//通过当前页数筛选出表格当前显示数据            
+              }
+            $scope.items = $scope.data.slice(0, $scope.pageSize);            //分页要repeat的数组
+            for (var i = 0; i < $scope.newPages; i++) {
+                $scope.pageList.push(i + 1);
+            }            //打印当前选中页索引
+            $scope.selectPage = function (page) {                //不能小于1大于最大
+                if (page < 1 || page > $scope.pages) return;                //最多显示分页数5
+                if (page > 2) {                    //因为只显示5个页数，大于2页开始分页转换
+                    var newpageList = [];                    for (var i = (page - 3) ; i < ((page + 2) > $scope.pages ? $scope.pages : (page + 2)) ; i++) {
+                        newpageList.push(i + 1);
+                    }
+                    $scope.pageList = newpageList;
+                }
+                $scope.selPage = page;
+                $scope.setData();
+                $scope.isActivePage(page);
+                console.log("选择的页：" + page);
+            };            //设置当前选中页样式
+            $scope.isActivePage = function (page) {                return $scope.selPage == page;
+            };            //上一页
+            $scope.previous = function () {
+                $scope.selectPage($scope.selPage - 1);
+            };            //下一页
+            $scope.next = function () {
+                $scope.selectPage($scope.selPage + 1);
+            };
+            $scope.deletePro= function(name){
+                $scope.curname = name;
+            };
+        });
+    })
+    </script>
+  </body>
+</html>

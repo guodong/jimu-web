@@ -1,0 +1,47 @@
+<!--进度条-->
+<div class="progress">
+  <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+    进度：20% 
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">品类</h2>
+  </div>
+  <div class="panel-body" ng-controller="cateController">              
+    <div>
+      <div class="panel btn-group">
+        <!-- <span class="input-group-addon" id="basic-addon1">分类</span> -->                  
+        <select class="form-control" ng-model="cate.fir" ng-options="fir.text for fir in cate">
+          <option value="">-- 分类一 --</option>
+        </select>  
+      </div>
+      <div class="panel btn-group" ng-if="cate.fir.children">
+        <!-- 这里的cate.fir 是上面select的ng-model的名称-->
+        <select class="form-control" ng-model="cate.sec" ng-options="sec.text for sec in cate.fir.children"> 
+          <option value="">-- 分类二 --</option>  
+        </select>  
+      </div>
+      <div class="panel btn-group" ng-if="cate.sec.children">
+        <select class="form-control" ng-model="cate.thi" ng-options="thi.text for thi in cate.sec.children"> 
+          <option value="">-- 分类三 --</option>  
+        </select>  
+      </div>         
+      <div class="panel btn-group" ng-if="cate.thi.children">
+        <select class="form-control" ng-model="cate.four" ng-options="sec.text for sec in cate.thi.children">
+          <option value="">-- 分类四 --</option>  
+        </select>  
+      </div>
+      <div class="panel btn-group" ng-if="cate.four.children">
+        <select class="form-control" ng-model="cate.fif" ng-options="sec.text for sec in cate.four.children">
+          <option value="">-- 分类五 --</option>  
+        </select>  
+      </div>
+      <div class="panel btn-group" ng-if="cate.fif.children">
+        <select class="form-control" ng-model="cate.six" ng-options="sec.text for sec in cate.fif.children"> 
+          <option value="">-- 分类六 --</option> 
+        </select>  
+      </div>
+    </div>
+  </div>
+</div>

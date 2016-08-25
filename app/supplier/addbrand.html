@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang="" ng-app="addApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>代理品牌添加</title>
+
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/bower_components/ng-bootstrap3-datepicker/dist/ng-bs3-datepicker.css" />
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- 移动端适配 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">折叠按钮</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">积木</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">首页</a></li>
+            <li><a href="../material/material.html">材料浏览</a></li>
+            <li><a href="supplier.html" target="_self">供应商主页</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../member/register.html">注册</a></li>
+            <li><a href="../member/login.html">登录</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="view-10">
+          <h3>示例供应商，欢迎您！</h3>
+        </div>
+        <form role="form" class="form-inline">
+          <!-- 品牌描述 -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">品牌描述</h2>
+            </div>
+            <div class="panel-body">
+              <div class="col-md-12 no-padding-left-right">
+                <div class="input-group panel">
+                  <span class="input-group-addon" id="span_mingcheng">名　称</span>
+                  <input type="text" class="form-control" placeholder="请输入" aria-describedby="span_mingcheng"/>
+                </div>
+                <div class="input-group panel">
+                  <span class="input-group-addon" id="span_regdata">注册时间</span>
+                  <ng-bs3-datepicker ng-model="date" language="zh-cn" date-format="YYYY-MM" min-viewmode="months" max-date="moment().format()" />
+                </div>
+              </div>
+              <!--品牌性质-->
+              <div class="col-md-12 no-padding-left-right">
+                <div class="btn-group panel input-group" data-toggle="buttons">
+                  <span class="input-group-addon">性　质</span>
+                  <label class="btn btn-default active">
+                    <input type="radio" name="options" id="xz_option1" autocomplete="off" checked> 独资
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="radio" name="options" id="xz_option2" autocomplete="off"> 合资
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="radio" name="options" id="xz_option3" autocomplete="off"> 初创
+                  </label>
+                </div>
+              </div>
+              <!--注册地-->
+              <div class="col-md-12 no-padding-left-right" ng-controller="locController">
+                <div class="panel input-group">
+                  <span class="input-group-addon">注册地</span>              
+                  <select class="form-control" ng-model="mcountry" ng-options="cty.cn for cty in country" style="overflow:hidden">  
+                    <option value="">-- 国家/地区 --</option>
+                  </select>  
+                </div>
+                <div class="panel btn-group">
+                  <select class="form-control" ng-model="mprovince" ng-options="pro.p for pro in mcountry.c"> 
+                    <option value="">-- 省市区 --</option>  
+                  </select>  
+                </div>
+                <div class="panel btn-group">
+                  <select class="form-control" ng-model="mcity" ng-options="ele for ele in mprovince.c"> 
+                    <option value="">-- 地级行政区 --</option>
+                  </select>  
+                </div>
+              </div>
+              <!--展厅-->
+              <div class="col-md-12 no-padding-left-right" ng-controller="locController">
+                <div class="panel input-group">
+                  <span class="input-group-addon">展　厅</span>              
+                  <select class="form-control" ng-model="mcountry" ng-options="cty.cn for cty in country">  
+                    <option value="">-- 国家/地区 --</option>
+                  </select>  
+                </div>
+                <div class="panel btn-group">
+                  <select class="form-control" ng-model="mprovince" ng-options="pro.p for pro in mcountry.c"> 
+                    <option value="">-- 省市区 --</option>  
+                  </select>  
+                </div>
+                <div class="panel btn-group">
+                  <select class="form-control" ng-model="mcity" ng-options="ele for ele in mprovince.c"> 
+                    <option value="">-- 地级行政区 --</option>
+                  </select>  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <button type="submit" class="btn btn-default">
+              保存
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script> -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/moment/min/moment.min.js"></script>
+    <script src="/bower_components/moment/min/moment-with-locales.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="../scripts/lib/app_add.js"></script>
+    <script src="../scripts/lib/location_data.js"></script>
+    <script src="../scripts/lib/controller.js"></script>
+    <script src="/bower_components/ng-bootstrap3-datepicker/dist/ng-bs3-datepicker.js" charset="utf-8"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="../scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

@@ -1,0 +1,369 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>材料浏览</title>
+
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <style type="text/css">
+      .shape{    
+				border-style: solid; border-width: 0 50px 50px 0; float:right; height: 0px; width: 0px;
+				-ms-transform:rotate(360deg); /* IE 9 */
+				-o-transform: rotate(360deg);  /* Opera 10.5 */
+				-webkit-transform:rotate(360deg); /* Safari and Chrome */
+				transform:rotate(360deg);
+			}
+
+			.speical{
+				background:#fff; border:1px solid #ddd; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); margin: 15px 0; overflow:hidden;
+			}
+
+			.speical:hover {
+			    -webkit-transform: scale(1.05); 
+			    -moz-transform: scale(1.05); 
+			    -ms-transform: scale(1.05); 
+			    -o-transform: scale(1.05); 
+			    transform:rotate scale(1.05); 
+			    -webkit-transition: all 0.4s ease-in-out; 
+			    -moz-transition: all 0.4s ease-in-out; 
+			    -o-transition: all 0.4s ease-in-out;
+			    transition: all 0.4s ease-in-out;
+			}
+
+			.shape {
+				border-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);
+			}
+
+			.speical-default{
+			  border: 1px solid #d9534f;
+			}
+
+			.speical-radius{
+				border-radius:5px;
+			}
+
+			.shape-text{
+				color:#fff; font-size:14px; position:relative; right:-22px; top:-2px; white-space: nowrap;
+				-ms-transform:rotate(45deg); /* IE 9 */
+				-o-transform: rotate(45deg);  /* Opera 10.5 */
+				-webkit-transform:rotate(45deg); /* Safari and Chrome */
+				transform:rotate(45deg);
+			}	
+
+			.text-special-default{
+			  color:#d9534f;
+			}
+
+			.speical-content{
+				padding:0 20px 10px;
+			}
+      .margin-search {
+        margin: 20px 0 40px 0;
+      }
+      h3 {
+        margin-top: 14px !important;     
+      }
+      p {
+        margin: 5px 0 0 0;
+      }
+    </style>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- 移动端适配 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">折叠按钮</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">积木</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">首页</a></li>
+            <li class="active"><a href="material.html">材料浏览</a></li>
+            <li><a href="../supplier/supplier.html">供应商主页</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../member/register.html">注册</a></li>
+            <li><a href="../member/login.html">登录</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <form role="form" method="post">
+      <!--搜索框-->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3">
+            <div class="input-group margin-search">
+              <input type="text" class="form-control" placeholder="材料搜索">
+              <span class="input-group-btn">
+                <button class="btn btn-danger" type="button">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+              </span>
+            </div><!-- /input-group -->
+          </div>
+        </div>
+      </div>
+      <!--筛选栏-->
+      <div class="container-fluid text-center">
+        <div style="border-top: 1px solid grey;border-bottom: 1px solid grey;height:50px">
+          这里是筛选栏
+        </div>
+      </div>
+    </form>
+
+    <div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="speical speical-radius">
+						<div class="shape">
+							<div class="shape-text">
+								最新							
+							</div>
+						</div>
+						<div class="speical-content">
+							<h3 class="text-special-default">
+								材料1
+							</h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+							<p>
+								经久耐用不褪色
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="speical speical-radius">
+						<div class="shape">
+							<div class="shape-text">
+								最新							
+							</div>
+						</div>
+						<div class="speical-content">
+							<h3 class="text-special-default">
+								材料2
+							</h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+							<p>
+								高分子合成材料
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="speical speical-radius">
+						<!-- <div class="shape">
+							<div class="shape-text">
+								最新							
+							</div>
+						</div> -->
+						<div class="speical-content">
+							<h3 class="text-special-default">
+								材料3
+							</h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+							<p>
+								环保无甲醛
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="speical speical-radius">
+						<!-- <div class="shape">
+							<div class="shape-text">
+								促销							
+							</div>
+						</div> -->
+						<div class="speical-content">
+							<h3 class="text-special-default">
+								材料4
+							</h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+							<p>
+								通风透气，甲级门厚
+							</p>
+						</div>
+					</div>
+				</div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <!-- <div class="shape">
+              <div class="shape-text">
+                最新              
+              </div>
+            </div> -->
+            <div class="speical-content">
+              <h3 class="text-special-default">
+                材料5
+              </h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+              <p>
+                经久耐用不褪色
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <!-- <div class="shape">
+              <div class="shape-text">
+                最新              
+              </div>
+            </div> -->
+            <div class="speical-content">
+              <h3 class="text-special-default">
+                材料6
+              </h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+              <p>
+                高分子合成材料
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <!-- <div class="shape">
+              <div class="shape-text">
+                最新              
+              </div>
+            </div> -->
+            <div class="speical-content">
+              <h3 class="text-special-default">
+                材料7
+              </h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+              <p>
+                环保无甲醛
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="speical speical-radius">
+            <!-- <div class="shape">
+              <div class="shape-text">
+                促销              
+              </div>
+            </div> -->
+            <div class="speical-content">
+              <h3 class="text-special-default">
+                材料8
+              </h3>
+              <p>
+              <img class="img-responsive img-rounded margin-auto" src="../images/mater.gif" alt="pic">
+              </p>
+              <p>
+                通风透气，甲级门厚
+              </p>
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
+
+
+    <!--footer-->
+    <footer>
+      <div class="container-fluid no-padding-left-right margin-top-2">
+        <div class="container no-padding-left-right text-center view-10 margin-top-20">
+          <div class="col-md-6">
+            <ul class="list-inline">
+              <li class="no-extra"><a href="../about.html">关于积木</a></li>
+              <li><a href="#">服务协议</a></li>
+              <li><a href="#">法律信息</a></li>
+              <li><a href="#">客服中心</a></li>
+              <li><a href="mailto:jimu_design@126.com" target="_blank">联系邮箱</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            Copyright © 2016 Jimu. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script> -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="../scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

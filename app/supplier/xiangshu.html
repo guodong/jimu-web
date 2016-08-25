@@ -1,0 +1,146 @@
+<!--进度条-->
+<div class="progress">
+  <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+    进度：80% 
+  </div>
+</div>
+<!-- 详述 -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">详述</h2>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-12 no-padding-left-right">
+      <div class="input-group panel">
+        <span class="input-group-addon" id="span_pinming">品名</span>
+        <input type="text" class="form-control" placeholder="请输入" aria-describedby="span_pinming" ng-model="formData.xs.pinming" />
+      </div>
+      <div class="input-group panel">
+        <span class="input-group-addon" id="span_crop">图片</span>
+        <label class="form-control">点击<a href="../addin/imagecrop.html" target="_blank">这里</a>裁剪图片后在下方上传</label>
+      </div>
+    </div>
+   
+    <div class="col-md-12 no-padding-left-right">
+      <div class="form-group">
+        <label for="inp_sanshitu">
+          三视图
+        </label>
+        <input type="file" id="inp_sanshitu" class="panel"/>
+      </div>
+      <div class="form-group">
+        <label for="inp_sanweitu">
+          三维图
+        </label>
+        <input type="file" id="inp_sanweitu" class="panel"/>
+      </div>
+      <div class="form-group">
+        <label for="inp_gouzao">
+          构造详解
+        </label>
+        <input type="file" id="inp_gouzao" class="panel"/>
+      </div>
+    </div>
+    <div  class="col-md-12 no-padding-left-right">
+      <div class="input-group panel">
+        <span class="input-group-addon" id="span_ckg">长宽高(cm)</span>
+        <input type="text" class="form-control" placeholder="如：20*30*50" aria-describedby="span_ckg" ng-model="formData.xs.ckg"
+         />
+        <!-- <input type="text" class="form-control" placeholder="宽" aria-describedby="span_ckg">*
+        <input type="text" class="form-control" placeholder="高" aria-describedby="span_ckg"> -->
+      </div>
+      <div class="input-group panel">
+        <span class="input-group-addon" id="span_fm">幅面</span>
+        <input type="text" class="form-control" placeholder="如A3, A4等" aria-describedby="span_fm" ng-model="formData.xs.fm" />
+      </div>
+      <div class="input-group panel">
+        <span class="input-group-addon" id="span_jz">极值</span>
+        <input type="text" class="form-control" placeholder="请输入" aria-describedby="span_jz" ng-model="formData.xs.jz" />
+      </div>
+    </div>
+    <div class="col-md-12 no-padding-left-right" ng-controller="locController">
+      <div class="panel input-group">
+        <span class="input-group-addon">产地</span>              
+        <select class="form-control" ng-model="formData.xs.ccountry" ng-options="cty.cn for cty in country">  
+          <option value="">-- 国家/地区 --</option>
+        </select>  
+      </div>
+      <div class="panel btn-group">
+        <select class="form-control" ng-model="formData.xs.cprovince" ng-options="pro.p for pro in formData.xs.ccountry.c"> 
+          <option value="">-- 省市区 --</option>  
+        </select>  
+      </div>
+      <div class="panel btn-group">
+        <select class="form-control" ng-model="formData.xs.ccity" ng-options="ele for ele in formData.xs.cprovince.c"> 
+          <option value="">-- 地级行政区 --</option>
+        </select>  
+      </div>
+    </div>
+    <div class="col-md-12 no-padding-left-right" ng-controller="locController">
+      <div class="panel input-group">
+        <span class="input-group-addon">库存</span>              
+        <select class="form-control" ng-model="formData.xs.kcountry" ng-options="cty.cn for cty in country">  
+          <option value="">-- 国家/地区 --</option>
+        </select>  
+      </div>
+      <div class="panel btn-group">
+        <select class="form-control" ng-model="formData.xs.kprovince" ng-options="pro.p for pro in formData.xs.kcountry.c"> 
+          <option value="">-- 省市区 --</option>  
+        </select>  
+      </div>
+      <div class="panel btn-group">
+        <select class="form-control" ng-model="formData.xs.kcity" ng-options="ele for ele in formData.xs.kprovince.c"> 
+          <option value="">-- 地级行政区 --</option>
+        </select>  
+      </div>
+    </div>
+    <div class="col-md-12 no-padding-left-right">
+      <!-- <div class="input-group panel">
+        <span class="input-group-addon">工艺</span>    
+        <label class="form-control">
+          <input type="radio" name="gongyi" value="加工" />加工
+          <input type="radio" name="gongyi" value="安装" />安装
+        </label>
+      </div>
+      <div class="input-group panel">
+        <span class="input-group-addon">价格</span>    
+        <label class="form-control">
+          <input type="radio" name="price" value="0-300" />0-300元
+          <input type="radio" name="price" value="301-500" />301-300元
+          <input type="radio" name="price" value="501-800" />501-800元
+          <input type="radio" name="price" value="801-1000" />801-1000元
+          <input type="radio" name="price" value="above1000" />1000元以上
+        </label>
+      </div> -->
+        
+      <div class="btn-group panel input-group" data-toggle="buttons">
+        <span class="input-group-addon">工艺</span>
+        <label class="btn btn-default" ng-click="select_gy(0)" ng-class="{true: 'active',false: ''}[gy_class]">
+          <input type="radio" name="options" id="gy_option1" autocomplete="off" value="jiagong" /> 加工
+        </label>
+        <label class="btn btn-default" ng-click="select_gy(1)" ng-class="{true: '',false: 'active'}[gy_class]">
+          <input type="radio" name="options" id="gy_option2" autocomplete="off" value="anzhuang" /> 安装
+        </label>
+      </div>
+     <!--  <div class="panel input-group">
+        <span class="input-group-addon">工艺</span>                  
+        <select class="form-control">  
+          <option value="">-- 请选择 --</option>  
+          <option value="加工">加工</option> 
+          <option value="安装">安装</option> 
+        </select>  
+      </div> -->
+      <div class="panel input-group">
+        <span class="input-group-addon">价格</span>                  
+        <select class="form-control" ng-model="formData.xs.price">  
+          <option value="">-- 请选择 --</option>  
+          <option value="0-300">0-300元</option> 
+          <option value="300-500">300-500元</option> 
+          <option value="500-800">500-800元</option> 
+          <option value="800-1000">800-1000元</option> 
+          <option value="above1000">1000元以上</option> 
+        </select>  
+      </div>
+    </div>  
+  </div><!--panel body-->
+</div>  <!-- 详述 -->

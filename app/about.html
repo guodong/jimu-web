@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>关于积木</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style type="text/css">
+      .row-color {
+        background-color: #337ab7;
+      }
+      .row-height {
+        height:185px;
+      }
+      .color-white {
+        color: white;
+      }
+      body {
+        padding-top: 50px;
+      }
+      h1 {
+        margin-top: 40px;
+        font-size: 40px;
+      }
+      h2 {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 9px;
+      }
+      .p-color {
+        color: rgb(191, 214, 229);
+      }
+      p {
+        font-size: 17px;
+      }
+      .p-title {
+        font-size: 18px;
+      }
+      .div-margin {
+        margin-bottom: 50px;
+      }
+      @media (min-width:992px){
+        .p-title {
+        font-size: 25px;
+        }
+        h1 {
+        margin-top: 60px;
+        font-size: 60px;
+        }
+        .row-height {
+          height: 245px;
+        }
+      }
+      
+    </style>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- 移动端适配 -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">折叠按钮</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">积木</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="material/material.html">材料浏览</a></li>
+            <li><a href="supplier/supplier.html">供应商主页</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="member/register.html">注册</a></li>
+            <li><a href="member/login.html">登录</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row row-color row-height">
+        <div class="col-md-11 col-md-offset-1">
+          <h1 class="color-white">关于 积木</h1>
+          <p class="p-color p-title">了解 积木 项目的历史和理念，介绍项目组成员以及如何使用。</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9 col-md-offset-1 div-margin">
+          <h2>历史</h2>
+          <p>积木 最初是由若干设计师和程序员创造的，现在，积木 正在成为了这个世界上最流行的材料平台。</p>
+        </div>
+        <div class="col-md-9 col-md-offset-1 div-margin">
+          <h2>开发小组</h2>
+          <p>积木 由创始成员和一组核心贡献者维护，他们为社区提供了巨大的帮助和支持。</p>
+        </div>
+        <div class="col-md-9 col-md-offset-1 div-margin">
+          <h2>商标使用指南</h2>
+          <p>需要使用 积木 的商标资源吗？我们只有很少的几条指导意见供大家一起遵守，当然，希望你也能遵守。这几条意见受到了 BootStrap 的商标资产的启发。
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!--footer-->
+    <footer>
+      <div class="container-fluid no-padding-left-right">
+        <div class="container no-padding-left-right text-center view-10 margin-top-20">
+          <div class="col-md-6">
+            <ul class="list-inline">
+              <li class="no-extra"><a href="about.html">关于积木</a></li>
+              <li><a href="#">服务协议</a></li>
+              <li><a href="#">法律信息</a></li>
+              <li><a href="#">客服中心</a></li>
+              <li><a href="mailto:jimu_design@126.com" target="_blank">联系邮箱</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            Copyright © 2016 Jimu. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script> -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- endbower -->
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+    
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

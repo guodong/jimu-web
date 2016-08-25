@@ -1,0 +1,1 @@
+var md = angular.module('addApp', ['ctrl.select.cascade','ng-bs3-datepicker']);

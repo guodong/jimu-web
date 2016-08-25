@@ -1,0 +1,23 @@
+{
+  "name": "xd-jimuapp-com",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "modernizr": "~2.8.1",
+    "angular": "angularjs#^1.5.7",
+    "cropit": "^0.5.1",
+    "jquery": "2.2.4",
+    "angular-ui-router": "^0.3.1",
+    "wow": "wowjs#^1.1.2",
+    "ng-bootstrap3-datepicker": "^1.0.0"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  }
+}
