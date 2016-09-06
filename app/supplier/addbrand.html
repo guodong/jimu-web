@@ -63,7 +63,7 @@
         <div class="view-10">
           <h3>示例供应商，欢迎您！</h3>
         </div>
-        <form role="form" class="form-inline">
+        <form role="form" class="form-inline" ng-controller="formController">
           <!-- 品牌描述 -->
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -84,13 +84,13 @@
               <div class="col-md-12 no-padding-left-right">
                 <div class="btn-group panel input-group" data-toggle="buttons">
                   <span class="input-group-addon">性　质</span>
-                  <label class="btn btn-default active">
+                  <label class="btn btn-default active" ng-click="select_xz(0)">
                     <input type="radio" name="options" id="xz_option1" autocomplete="off" checked> 独资
                   </label>
-                  <label class="btn btn-default">
+                  <label class="btn btn-default" ng-click="select_xz(1)">
                     <input type="radio" name="options" id="xz_option2" autocomplete="off"> 合资
                   </label>
-                  <label class="btn btn-default">
+                  <label class="btn btn-default" ng-click="select_xz(2)">
                     <input type="radio" name="options" id="xz_option3" autocomplete="off"> 初创
                   </label>
                 </div>
@@ -99,7 +99,7 @@
               <div class="col-md-12 no-padding-left-right" ng-controller="locController">
                 <div class="panel input-group">
                   <span class="input-group-addon">注册地</span>              
-                  <select class="form-control" ng-model="mcountry" ng-options="cty.cn for cty in country" style="overflow:hidden">  
+                  <select class="form-control" ng-model="mcountry" ng-options="cty.cn for cty in country">  
                     <option value="">-- 国家/地区 --</option>
                   </select>  
                 </div>
@@ -181,7 +181,25 @@
     <script src="../scripts/lib/controller.js"></script>
     <script src="/bower_components/ng-bootstrap3-datepicker/dist/ng-bs3-datepicker.js" charset="utf-8"></script>
     <!-- endbuild -->
-    
+    <script type="text/javascript">
+        md.controller('formController', function($scope) {
+          $scope.formData = {"xz":"独资"};
+          $scope.select_xz = function(num) {
+            if(num===0)
+            {
+              $scope.formData.xz = "独资";
+            }
+            else if(num===1)
+            {
+              $scope.formData.xz = "合资";
+            }
+            else
+            {
+              $scope.formData.xz = "初创";
+            }
+          };
+        });
+    </script>
     <!-- build:js scripts/main.js -->
     <script src="../scripts/main.js"></script>
     <!-- endbuild -->
